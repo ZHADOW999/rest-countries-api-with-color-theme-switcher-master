@@ -21,10 +21,27 @@ export default {
       },
 
       fontFamily:{
-        'Ns-condense':'Ns-condense',
+        'Ns-condensed':'Ns-condensed',
         'Ns-light':'Ns-light',
         'Ns-medium':'Ns-medium',
         'Ns-regular':'Ns-regular',
+        'Ns-semibold':'Ns-semibold',
+        'Ns-bold':'Ns-bold'
+
+      },
+      boxShadow:{
+        'light-mode-shadow':'0px 0px 10px 0px rgba(0, 0, 0, 1)'
+      },
+      fontSize:{
+        'xs': '0.75rem',     // 12px
+        'sm': '0.875rem',    // 14px
+        'base': '1rem',      // 16px
+        'lg': '1.125rem',    // 18px
+        'xl': '1.25rem',     // 20px
+        '2xl': '1.5rem',     // 24px
+        '3xl': '1.875rem',   // 30px
+        '4xl': '2.25rem',    // 36px
+        '5xl': '3rem'        // 48px
       }
     },
   },

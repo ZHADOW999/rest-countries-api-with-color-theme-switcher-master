@@ -31,3 +31,19 @@
   src:url(src/fonts/NunitoSans_7pt-Regular.ttf);
   font-family: Ns-regular;
 }
+
+@font-face{
+  src:url(src/fonts/NunitoSans_7pt-SemiBold.ttf);
+  font-family: Ns-semibold;
+}
+
+@font-face{
+  src:url(src/fonts/NunitoSans_7pt-Bold.ttf);
+  font-family: Ns-bold
+}
+@layer{
+  nav button {
+    /* @apply bg-light-mode-element dark:bg-dark-mode-element */
+    @apply bg-white dark:bg-black text-black dark:text-white text-5xl
+  }
+}
