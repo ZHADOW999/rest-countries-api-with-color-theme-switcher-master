@@ -12,7 +12,11 @@ const UseFetch = (url) => {
                 setData(res.data);
                 setError(null);
             }).catch((err) => {
-                setError('Failed to fetch data. Please try again later.');
+                if (err.response && err.response.status === 404) {
+                    setError("Hmm, we couldn't find the data you're looking for. Please check the URL or try again later.");
+                } else {
+                    setError("Oops! Something went wrong while fetching the data. Please give it another try!");
+                }
                 console.error(err);
             }).finally(() => {
                 setLoading(false);

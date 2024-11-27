@@ -10,7 +10,7 @@ const CountryCard = ({country}) => {
                         <h1 className="font-Ns-bold  capitalize text-lg mb-2">{item.name.common}</h1>
                         <span className="space-y-2">
                             <p className="font-Ns-regular text-sm">
-                                <span className="font-Ns-bold">Population:</span> {item.population}
+                                <span className="font-Ns-bold">Population:</span> {item.population.toLocaleString()}
                             </p>
                             <p className="font-Ns-regular text-sm">
                                 <span className="font-Ns-bold">Region:</span> {item.region}
