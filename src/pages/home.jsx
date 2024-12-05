@@ -5,7 +5,7 @@ import UseFetchRegion from "../components/UseFetchRegion";
 import { useState, useEffect } from "react";
 
 const Home = () => {
-    const { data: country, error, loading } = UseFetch("https://restcountries.com/v3.1/all/");
+    const { data: country, error, loading } = UseFetch("https://restcountries.com/v3.1/all");
     
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState(localStorage.getItem('searchQuery') || "");
