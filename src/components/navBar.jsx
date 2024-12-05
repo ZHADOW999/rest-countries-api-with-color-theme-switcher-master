@@ -26,7 +26,7 @@ const NavBar = () => {
     return (
         <header className="text-light-mode-text dark:text-dark-mode-text bg-white z-50 dark:bg-dark-mode-element relative navbar-shadow transition-all duration-300 ease-in-out ">
             <nav className="py-2 w-[90%] m-auto flex justify-between items-center">
-                <h1 className="font-Ns-semibold text-xl">
+                <h1 className="font-Ns-bold font-black sm:text-xl text-base">
                     Where in the world
                 </h1>
                 <div className="flex items-center gap-2">

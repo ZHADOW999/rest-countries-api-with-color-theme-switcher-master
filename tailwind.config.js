@@ -42,7 +42,15 @@ export default {
         '3xl': '1.875rem',   // 30px
         '4xl': '2.25rem',    // 36px
         '5xl': '3rem'        // 48px
-      }
+      },
+      screens:{
+        'sm': '480px',
+        'md': '768px',
+        'lg': '976px',
+        'xl': '1024px',
+        '2xl':'1250px',
+        '3xl':'1440px',
+      },
     },
   },
   plugins: [

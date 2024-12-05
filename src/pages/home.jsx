@@ -2,21 +2,21 @@ import { Spinner, Pagination } from "flowbite-react";
 import CountryCard from "../components/countyCard";
 import UseFetch from "../components/UseFetch";
 import UseFetchRegion from "../components/UseFetchRegion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Home = () => {
-    const { data: country, error, loading } = UseFetch("https://restcountries.com/v3.1/all");
+    const { data: country, error, loading } = UseFetch("https://restcountries.com/v3.1/all/");
     
     const [currentPage, setCurrentPage] = useState(1);
-    const [searchQuery, setSearchQuery] = useState("");
-    const [selectedRegion, setSelectedRegion] = useState("All");
+    const [searchQuery, setSearchQuery] = useState(localStorage.getItem('searchQuery') || "");
+    const [selectedRegion, setSelectedRegion] = useState(localStorage.getItem('selectedRegion') || "All");
     const itemsPerPage = 20;
     const [none, setNone] = useState("Oops! We couldn't find any countries matching your search.");
 
     const { region, loading: regionLoading, error: regionError } = UseFetchRegion(selectedRegion !== "All" ? selectedRegion : null);
 
     const combinedError = error || regionError;
-
+    const combinedLoader = loading || regionLoading;
     const filteredCountries = (selectedRegion === "All" ? country : region) 
         ? (selectedRegion === "All" ? country : region).filter(c => c.name.common.toLowerCase().includes(searchQuery.toLowerCase())) 
         : [];
@@ -29,12 +29,18 @@ const Home = () => {
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+    // Save search query and selected region to local storage
+    useEffect(() => {
+        localStorage.setItem('searchQuery', searchQuery);
+        localStorage.setItem('selectedRegion', selectedRegion);
+    }, [searchQuery, selectedRegion]);
+
     return (
         <section className="pt-10 bg-light-mode-bg dark:bg-dark-mode-bg min-h-screen transition-all duration-300 ease-in-out">
             <div className="w-[90%] mx-auto">
 
-                <div className="flex justify-between items-center">
-                    <form className="w-2/5 font-Ns-regular" onSubmit={(e) => e.preventDefault()}>
+                <div className="flex justify-between sm:items-center space-y-10 sm:space-y-0 sm:flex-row flex-col">
+                    <form className="sm:w-2/5 font-Ns-regular w-full" onSubmit={(e) => e.preventDefault()}>
                         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                         <div className="relative">
                             <button type="submit" className="absolute inset-y-0 start-5 flex items-center ps-3">
@@ -54,12 +60,13 @@ const Home = () => {
                         </div>
                     </form>
 
-                    <form className="w-1/6 font-Ns-regular">
+                    <form className="sm:w-1/6 font-Ns-regular w-2/3">
                         <select 
                             id="countries" 
-                            className="bg-white border border-none text-gray-900 text-sm rounded-lg focus:ring-gray-300 focus:border-gray-300 block w-full p-2.5 dark:bg-dark-mode-element dark:border-none dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="cursor-pointer bg-white border border-none text-gray-900 text-sm rounded-lg focus:ring-gray-300 focus:border-gray-300 block w-full p-2.5 dark:bg-dark-mode-element dark:border-none dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value={selectedRegion}
                             onChange={(e) => setSelectedRegion(e.target.value)}
+                            
                         >
                             <option value="All">Filter by Region</option>
                             <option value="Africa">Africa</option>
@@ -71,10 +78,10 @@ const Home = () => {
                     </form>
                     
                 </div>
-                {(loading || regionLoading) && <div className="flex justify-center items-center h-screen"><Spinner aria-label="Extra large spinner example" size="xl" /></div>}
-                {combinedError && <div className="text-white font-Ns-regular text-center text-2xl flex justify-center items-center ">{combinedError}</div>}
+                {(combinedLoader) && <div className="flex justify-center items-center h-screen"><Spinner aria-label="Extra large spinner example" size="xl" /></div>}
+                {combinedError && <div className="text-light-mode-text dark:text-white  font-Ns-regular text-center text-2xl flex justify-center items-center ">{combinedError}</div>}
                 {country && <CountryCard country={currentCountries} />}
-                {filteredCountries.length === 0 && !combinedError&& (<div className="flex justify-center items-center text-2xl font-Ns-regular text-white">{none}</div>)}
+                {filteredCountries.length === 0 && !combinedError&& (<div className="flex justify-center items-center text-2xl font-Ns-regular text-light-mode-text text-center dark:text-white">{none}</div>)}
 
                 <Pagination
                     className="flex justify-center items-center mt-10 pb-10"
@@ -84,7 +91,7 @@ const Home = () => {
                     theme={{
                         button: {
                             base: 'px-4 py-2 rounded-md',
-                            active: 'bg-blue-500 text-white',
+                            active: 'bg-black text-white',
                             inactive: 'bg-gray-200 text-gray-700 hover:bg-gray-300',
                         },
                     }}
