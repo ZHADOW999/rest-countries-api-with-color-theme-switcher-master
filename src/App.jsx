@@ -8,10 +8,12 @@ function App() {
     <BrowserRouter>
 
       <NavBar/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/country/:name" element={<CountryDetails/> } />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/country/:name" element={<CountryDetails/> } />
+        </Routes>
+      </main>
     </BrowserRouter>
   )
 }
