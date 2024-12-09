@@ -25,8 +25,8 @@ const CountryDetails = () => {
 
   return (
     <>
-    {loading && <div className="flex justify-center items-center h-screen"><Spinner aria-label="Extra large spinner example" size="xl" /></div>}
-    {error && <div className="text-light-mode-text dark:text-white  font-Ns-regular text-center text-2xl flex justify-center items-center ">{error}</div>}
+    {loading && <div className="bg-light-mode-bg dark:bg-dark-mode-bg flex justify-center items-center h-screen"><Spinner aria-label="Extra large spinner example" size="xl" /></div>}
+    {error && <div className="bg-light-mode-bg dark:bg-dark-mode-bg text-light-mode-text dark:text-white  font-Ns-regular text-center text-2xl flex justify-center items-center ">{error}</div>}
       {country && country.length > 0 && (
         <section className=" pt-14 bg-light-mode-bg dark:bg-dark-mode-bg min-h-screen transition-all duration-300 ease-in-out">
           <div className=" dark:text-dark-mode-text text-light-mode-text m-auto w-[90%]">
