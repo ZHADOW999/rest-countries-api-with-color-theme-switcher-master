@@ -3,6 +3,7 @@ import CountryCard from "../components/countyCard";
 import UseFetch from "../components/UseFetch";
 import UseFetchRegion from "../components/UseFetchRegion";
 import { useState, useEffect } from "react";
+import { useMediaQuery } from 'react-responsive';
 
 const Home = () => {
     const { data: country, error, loading } = UseFetch("https://restcountries.com/v3.1/all");
@@ -49,6 +50,14 @@ const Home = () => {
         }
     }, [filteredCountries]);
     
+    // Determine if the screen is small
+    const isSmallScreen = useMediaQuery({ query: '(max-width: 480px)' }); // Adjust the breakpoint as needed
+
+    // Calculate total pages
+    const totalPages = Math.ceil(filteredCountries.length / itemsPerPage);
+    
+    // Determine the number of buttons to show based on screen size
+    const buttonsToShow = isSmallScreen ? Math.min(totalPages, 3) : totalPages; // Show 3 buttons on small screens
 
     return (
         <section className="pt-10 bg-light-mode-bg dark:bg-dark-mode-bg min-h-screen transition-all duration-200 ease-linear">
@@ -104,7 +113,7 @@ const Home = () => {
                 <Pagination
                     className="flex justify-center items-center mt-10 pb-10"
                     currentPage={currentPage}
-                    totalPages={Math.ceil(filteredCountries.length / itemsPerPage)}
+                    totalPages={buttonsToShow}
                     onPageChange={paginate}
                     theme={{
                         button: {

@@ -28,7 +28,9 @@ const BorderCountries = ({ borders }) => {
                 {borderCountryNames.length > 0 ? (
                     borderCountryNames.map((borderCountry, index) => (
                         
-                            <Link key={index} className="hover:scale-110 transition-all duration-200 ease-in-out bg-light-mode-element dark:bg-dark-mode-element text-light-mode-text dark:text-dark-mode-text rounded-md px-4 py-2 shadow-md hover:bg-gray-200 dark:hover:bg-gray-700" to={`/country/${borderCountry.toLowerCase().replace(/\s+/g, '-')}`}>{borderCountry}</Link>
+                            <Link key={index} className="hover:scale-110 transition-all duration-200 ease-in-out bg-light-mode-element dark:bg-dark-mode-element text-light-mode-text dark:text-dark-mode-text rounded-md px-4 py-2 shadow-md
+                            font-Ns-regular 
+                            hover:bg-gray-200 dark:hover:bg-gray-700" to={`/country/${borderCountry.toLowerCase().replace(/\s+/g, '-')}`}>{borderCountry}</Link>
                         
                     ))
                 ) : (

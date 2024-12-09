@@ -31,20 +31,20 @@ const CountryDetails = () => {
                 <section className="pb-20 pt-14 bg-light-mode-bg dark:bg-dark-mode-bg min-h-screen transition-all duration-300 ease-in-out">
                     <div className=" dark:text-dark-mode-text text-light-mode-text m-auto w-[90%]">
                         <div onClick={BackBtn}>
-                            <button
-
+                            <Link
+                                to="/"
                                 className="rounded-md text-lg px-10 py-2 dark:bg-dark-mode-element bg-light-mode-element shadow-btn-shadow"
                             >
                                 <FontAwesomeIcon
                                     className="mr-3 text-xl"
                                     icon={faArrowLeftLong}
                                 />{" "}
-                                <Link to="/">Back</Link>
-                            </button>
+                                Back
+                            </Link>
                         </div>
-                        <div className="gap-[10%] mt-20 flex flex-col md:flex-row ">
+                        <div className="lg:gap-[10%] sm:justify-between lg:justify-normal mt-20 flex flex-col md:flex-row ">
                             <img
-                                className="mb-14 w-full h-72 md:w-[40%]"
+                                className="mb-14 w-full h-72 lg:w-[40%] md:w-[50%]"
                                 src={country[0].flags.png}
                                 alt={country[0].name.common}
                             />
@@ -53,7 +53,7 @@ const CountryDetails = () => {
                                             {country[0].name.common}
                                         </h1>
 
-                                <div className="flex flex-col space-y-10 md:space-y-0 lg:flex-row lg:items-start lg:space-x-10">
+                                <div className="flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:items-start lg:space-x-10">
                                     <article className="space-y-4">
                                         
                                         <p className="font-Ns-regular text-sm">
