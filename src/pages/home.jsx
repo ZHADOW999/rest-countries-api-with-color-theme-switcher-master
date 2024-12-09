@@ -13,12 +13,15 @@ const Home = () => {
     const itemsPerPage = 20;
     const [none, setNone] = useState("Oops! We couldn't find any countries matching your search.");
 
+    
     const { region, loading: regionLoading, error: regionError } = UseFetchRegion(selectedRegion !== "All" ? selectedRegion : null);
 
     const combinedError = error || regionError;
     const combinedLoader = loading || regionLoading;
     const filteredCountries = (selectedRegion === "All" ? country : region) 
-        ? (selectedRegion === "All" ? country : region).filter(c => c.name.common.toLowerCase().includes(searchQuery.toLowerCase())) 
+        ? (selectedRegion === "All" ? country : region).filter(c => 
+            c.name.common.toLowerCase().includes(searchQuery.toLowerCase())
+        ) 
         : [];
 
     // Calculate the indices for the current page
@@ -34,6 +37,18 @@ const Home = () => {
         localStorage.setItem('searchQuery', searchQuery);
         localStorage.setItem('selectedRegion', selectedRegion);
     }, [searchQuery, selectedRegion]);
+
+    //Reset pagination when the selected region changes
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [selectedRegion]);
+
+    useEffect(() => {
+        if (currentPage > Math.ceil(filteredCountries.length / itemsPerPage)) {
+            setCurrentPage(1); // Reset to the first page if the current page exceeds the total pages
+        }
+    }, [filteredCountries]);
+    
 
     return (
         <section className="pt-10 bg-light-mode-bg dark:bg-dark-mode-bg min-h-screen transition-all duration-200 ease-linear">
