@@ -24,7 +24,7 @@ const BorderCountries = ({ borders }) => {
     return (
         <div className='mt-14 '>
             <h2 className="font-Ns-bold text-lg">Border Countries:</h2>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mt-2">
                 {borderCountryNames.length > 0 ? (
                     borderCountryNames.map((borderCountry, index) => (
                         
