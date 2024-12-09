@@ -64,6 +64,7 @@ const Home = () => {
 
                     <form className="2xl:w-1/6 sm:w-[30%] font-Ns-regular w-2/3">
                         <select 
+                            aria-label="Select your country"
                             id="countries" 
                             className="cursor-pointer bg-white border border-none text-gray-900 text-sm rounded-lg focus:ring-gray-300 focus:border-gray-300 block w-full p-2.5 dark:bg-dark-mode-element dark:border-none dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value={selectedRegion}
