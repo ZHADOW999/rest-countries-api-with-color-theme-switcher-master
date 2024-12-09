@@ -91,7 +91,9 @@ export default {
 
       },
       boxShadow:{
-        'light-mode-shadow':'0px 0px 10px 0px rgba(0, 0, 0, 1)'
+        'light-mode-shadow':'0px 0px 10px 0px rgba(0, 0, 0, 1)',
+        'btn-shadow':'0px 0px 20px 1px rgba(0, 0, 0, 0.5)',
+
       },
       fontSize:{
         'xs': '0.75rem',     // 12px
