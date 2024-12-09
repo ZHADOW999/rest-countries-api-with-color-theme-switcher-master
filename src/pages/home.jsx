@@ -36,7 +36,7 @@ const Home = () => {
     }, [searchQuery, selectedRegion]);
 
     return (
-        <section className="pt-10 bg-light-mode-bg dark:bg-dark-mode-bg min-h-screen transition-all duration-300 ease-in-out">
+        <section className="pt-10 bg-light-mode-bg dark:bg-dark-mode-bg min-h-screen transition-all duration-200 ease-linear">
             <div className="w-[90%] mx-auto">
 
                 <div className="flex justify-between sm:items-center space-y-10 sm:space-y-0 sm:flex-row flex-col">
