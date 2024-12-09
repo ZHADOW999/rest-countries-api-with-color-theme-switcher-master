@@ -88,7 +88,7 @@ const Home = () => {
                         >
                             <option aria-label="Filter by Region" value="All">Filter by Region</option>
                             <option aria-label="Africa" value="Africa">Africa</option>
-                            <option aria-label="Americas" value="Americas">Americas</option>
+                            <option aria-label="Americas" value="America">America</option>
                             <option aria-label="Asia" value="Asia">Asia</option>
                             <option aria-label="Europe" value="Europe">Europe</option>
                             <option aria-label="Oceania" value="Oceania">Oceania</option>
