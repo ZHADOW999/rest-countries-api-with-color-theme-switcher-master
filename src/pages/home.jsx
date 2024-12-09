@@ -40,10 +40,12 @@ const Home = () => {
             <div className="w-[90%] mx-auto">
 
                 <div className="flex justify-between sm:items-center space-y-10 sm:space-y-0 sm:flex-row flex-col">
-                    <form className="sm:w-2/5 font-Ns-regular w-full" onSubmit={(e) => e.preventDefault()}>
+                    <form className="lg:w-2/5 sm:w-1/2 font-Ns-regular w-full" onSubmit={(e) => e.preventDefault()}>
                         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                         <div className="relative">
-                            <button type="submit" className="absolute inset-y-0 start-5 flex items-center ps-3">
+                            <button 
+                            aria-label="Submit button"
+                            type="submit" className="absolute inset-y-0 start-5 flex items-center ps-3">
                                 <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
@@ -60,7 +62,7 @@ const Home = () => {
                         </div>
                     </form>
 
-                    <form className="sm:w-1/6 font-Ns-regular w-2/3">
+                    <form className="2xl:w-1/6 sm:w-[30%] font-Ns-regular w-2/3">
                         <select 
                             id="countries" 
                             className="cursor-pointer bg-white border border-none text-gray-900 text-sm rounded-lg focus:ring-gray-300 focus:border-gray-300 block w-full p-2.5 dark:bg-dark-mode-element dark:border-none dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -68,12 +70,12 @@ const Home = () => {
                             onChange={(e) => setSelectedRegion(e.target.value)}
                             
                         >
-                            <option value="All">Filter by Region</option>
-                            <option value="Africa">Africa</option>
-                            <option value="Americas">Americas</option>
-                            <option value="Asia">Asia</option>
-                            <option value="Europe">Europe</option>
-                            <option value="Oceania">Oceania</option>
+                            <option aria-label="Filter by Region" value="All">Filter by Region</option>
+                            <option aria-label="Africa" value="Africa">Africa</option>
+                            <option aria-label="Americas" value="Americas">Americas</option>
+                            <option aria-label="Asia" value="Asia">Asia</option>
+                            <option aria-label="Europe" value="Europe">Europe</option>
+                            <option aria-label="Oceania" value="Oceania">Oceania</option>
                         </select>
                     </form>
                     

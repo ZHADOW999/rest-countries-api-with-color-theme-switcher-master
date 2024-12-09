@@ -27,9 +27,9 @@ const BorderCountries = ({ borders }) => {
             <div className="flex flex-wrap gap-2">
                 {borderCountryNames.length > 0 ? (
                     borderCountryNames.map((borderCountry, index) => (
-                        <button key={index} className="hover:scale-110 transition-all duration-200 ease-in-out bg-light-mode-element dark:bg-dark-mode-element text-light-mode-text dark:text-dark-mode-text rounded-md px-4 py-2 shadow-md hover:bg-gray-200 dark:hover:bg-gray-700">
-                            <Link to={`/country/${borderCountry.toLowerCase().replace(/\s+/g, '-')}`}>{borderCountry}</Link>
-                        </button>
+                        
+                            <Link key={index} className="hover:scale-110 transition-all duration-200 ease-in-out bg-light-mode-element dark:bg-dark-mode-element text-light-mode-text dark:text-dark-mode-text rounded-md px-4 py-2 shadow-md hover:bg-gray-200 dark:hover:bg-gray-700" to={`/country/${borderCountry.toLowerCase().replace(/\s+/g, '-')}`}>{borderCountry}</Link>
+                        
                     ))
                 ) : (
                     <p>No border countries</p>
